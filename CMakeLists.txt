@@ -7,6 +7,7 @@ configure_file("${CMAKE_SOURCE_DIR}/source/Version.sty.in" "${CMAKE_SOURCE_DIR}/
 execute_process(COMMAND "lualatex" "-output-directory=${CMAKE_BINARY_DIR}" "--shell-escape" "-jobname=${PROJECT_NAME}" "-halt-on-error" "${PROJECT_NAME}.tex" WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/source" OUTPUT_QUIET RESULT_VARIABLE SUCCESS)
 
 if(${SUCCESS} EQUAL 0)
+  file(COPY "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pdf" DESTINATION "${CMAKE_BINARY_DIR}/pdf/")
   file(RENAME "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pdf" "${CMAKE_SOURCE_DIR}/${PROJECT_NAME}-v${PROJECT_VERSION}.pdf")
 else()
   message(FATAL_ERROR "Problem")
