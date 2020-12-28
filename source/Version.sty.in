@@ -1,0 +1,4 @@
+\NeedsTeXFormat{LaTeX2e}[2020-10-01]
+\ProvidesPackage{Version}[2020/12/31 Version of the document.]
+
+\newcommand{\Version}{@PROJECT_VERSION@}
